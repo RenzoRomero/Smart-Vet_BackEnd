@@ -2,9 +2,10 @@
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const Owner = mongoose.model('Owner')
 
 const PetSchema = Schema({
-  owner: String,
+  owner: {type: Schema.ObjectId, ref: "Owner"},
   name: String,
   photo: String,
   breed: String,
