@@ -13,6 +13,7 @@ api.delete('/pet/:petId', petCtrl.deletePet)
 
 api.post('/owner/signup', ownerCtrl.signUp)
 api.post('/owner/signin', ownerCtrl.signIn)
+
 api.get('/owner', ownerCtrl.getOwners)
 api.get('/owner/:ownerId', ownerCtrl.getOwner)
 api.put('/owner/:ownerId', ownerCtrl.updateOwner)
