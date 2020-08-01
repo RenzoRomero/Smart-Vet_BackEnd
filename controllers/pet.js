@@ -1,5 +1,6 @@
 'use strict'
 
+const Owner = require('../models/owner')
 const Pet = require('../models/pet')
 
 function getPet (req, res) {
@@ -9,7 +10,9 @@ function getPet (req, res) {
     if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
     if (!pet) return res.status(404).send({message: `La mascota no existe`})
 
-    res.status(200).send({ pet })
+    Owner.populate(pet, {path: "owner"}, function(err, pet){
+      res.status(200).send({ pet })
+    });
   })
 }
 
@@ -18,10 +21,23 @@ function getPets (req, res) {
     if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
     if (!pets) return res.status(404).send({message: `No existen mascotas`})
 
-    res.status(200).send({ pets })
+    Owner.populate(pets, {path: "owner"}, function(err, pets){
+      res.status(200).send({ pets })
+    });
   })
 }
 
+function getPetsByOwner (req, res) {
+  let ownerId = req.params.ownerId
+  Pet.find({"status": "A", "owner": ownerId}, (err,pets) => {
+    if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
+    if (!pets) return res.status(404).send({message: `No existen mascotas`})
+
+    Owner.populate(pets, {path: "owner"}, function(err, pets){
+      res.status(200).send({ pets })
+    });
+  })
+}
 
 function savePet (req, res) {
   console.log('POST /api/pet')
@@ -38,8 +54,9 @@ function savePet (req, res) {
   pet.save((err, petStored) => {
     if (err) return res.status(500).send({message: `Error al guardar en la base de datos: ${err}`})
 
-    res.status(200).send({ petStored })
-
+    Owner.populate(petStored, {path: "owner"}, function(err, petStored){
+      res.status(200).send({ petStored })
+    });
   })
 }
 
@@ -50,8 +67,9 @@ function updatePet (req, res) {
   Pet.findOneAndUpdate(petId, update, { new: true }, (err, petUpdated) => {
     if (err) return res.status(500).send({message: `Error al actualizar la mascota: ${err}`})
 
-    res.status(200).send({ petUpdated })
-
+    Owner.populate(petUpdated, {path: "owner"}, function(err, petUpdated){
+      res.status(200).send({ petUpdated })
+    });
   })
 }
 
@@ -72,6 +90,7 @@ function deletePet (req, res) {
 module.exports = {
   getPet,
   getPets,
+  getPetsByOwner,
   savePet,
   updatePet,
   deletePet
