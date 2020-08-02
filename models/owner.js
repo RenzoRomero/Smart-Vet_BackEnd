@@ -3,7 +3,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const bcrypt = require('bcrypt-nodejs')
-
 mongoose.set('useCreateIndex', true)
 
 const OwnerSchema = new Schema({
