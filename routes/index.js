@@ -48,12 +48,12 @@ api.post('/promotion', auth, promotionCtrl.savePromotion)
 api.delete('/promotion/:promotionId', auth, promotionCtrl.deletePromotion)
 api.put('/promotion/:promotionId', auth, promotionCtrl.updatePromotion)
 
-api.get('/clinicHistory', clinicHistoryCtrl.getClinicalHistories)
-api.get('/clinicHistory/:clinicHistoryId', clinicHistoryCtrl.getClinicHistory)
-api.get('/clinicHistory/pet/:petId', clinicHistoryCtrl.getClinicalHistoriesByPet)
-api.post('/clinicHistory', auth, clinicHistoryCtrl.saveClinicHistory)
-api.delete('/clinicHistory/:clinicHistoryId', auth, clinicHistoryCtrl.deleteClinicHistory)
-api.put('/clinicHistory/:clinicHistoryId', auth, clinicHistoryCtrl.updateClinicHistory)
+api.get('/clinicHistories', clinicHistoryCtrl.getClinicalHistories)
+api.get('/clinicHistories/:clinicHistoryId', clinicHistoryCtrl.getClinicHistory)
+api.get('/clinicHistories/pet/:petId', clinicHistoryCtrl.getClinicalHistoriesByPet)
+api.post('/clinicHistories', auth, clinicHistoryCtrl.saveClinicHistory)
+api.delete('/clinicHistories/:clinicHistoryId', auth, clinicHistoryCtrl.deleteClinicHistory)
+api.put('/clinicHistories/:clinicHistoryId', auth, clinicHistoryCtrl.updateClinicHistory)
 
 api.get('/private', auth, (req, res) => {
   res.status(200).send({ message: `Tienes acceso`})
