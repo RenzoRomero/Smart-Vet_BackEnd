@@ -8,7 +8,7 @@ function getPet (req, res) {
 
   Pet.findById(petId, (err, pet) => {
     if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
-    if (!pet) return res.status(404).send({message: `La mascota no existe`})
+    if (!pet) return res.status(202).send({message: `La mascota no existe`})
 
     Owner.populate(pet, {path: "owner"}, function(err, pet){
       res.status(200).send({ pet })
@@ -19,7 +19,7 @@ function getPet (req, res) {
 function getPets (req, res) {
   Pet.find({"status": "A"}, (err,pets) => {
     if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
-    if (!pets) return res.status(404).send({message: `No existen mascotas`})
+    if (!pets) return res.status(202).send({message: `No existen mascotas`})
 
     Owner.populate(pets, {path: "owner"}, function(err, pets){
       res.status(200).send({ pets })
@@ -31,7 +31,7 @@ function getPetsByOwner (req, res) {
   let ownerId = req.params.ownerId
   Pet.find({"status": "A", "owner": ownerId}, (err,pets) => {
     if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
-    if (!pets) return res.status(404).send({message: `No existen mascotas`})
+    if (!pets) return res.status(202).send({message: `No existen mascotas`})
 
     Owner.populate(pets, {path: "owner"}, function(err, pets){
       res.status(200).send({ pets })

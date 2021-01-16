@@ -7,7 +7,7 @@ function getProduct (req, res) {
 
   Product.findById(productId, (err, product) => {
     if(err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
-    if(!product) return res.status(404).send({message: `Error el producto no existe`})
+    if(!product) return res.status(202).send({message: `Error el producto no existe`})
 
     res.status(200).send({ product })
   })
@@ -16,7 +16,7 @@ function getProduct (req, res) {
 function getProducts (req, res) {
   Product.find({"status":"A"}, (err, products) => {
     if(err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`})
-    if(!products) return res.status(404).send({message: `No existen productos`})
+    if(!products) return res.status(202).send({message: `No existen productos`})
 
     res.status(200).send({ products })
   })

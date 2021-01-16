@@ -28,11 +28,11 @@ function signUp (req, res) {
 function signIn (req, res) {
   Vet.findOne({ email: req.body.email }, (err, vet) => {
     if (err) return res.status(500).send({ message: err})
-    if (!vet) return res.status(404).send({ message: `No existe el usuario` })
+    if (!vet) return res.status(202).send({ message: `No existe el usuario` })
 
     return vet.comparePassword(req.body.password, (err, isMatch) => {
       if (err) return res.status(500).send({ message: `Error al ingresar: ${err}` })
-      if (!isMatch) return res.status(404).send({ message: `Error de contraseña: ${req.body.email}` })
+      if (!isMatch) return res.status(202).send({ message: `Error de contraseña: ${req.body.email}` })
 
       req.vet = vet
       return res.status(200).send({
