@@ -9,6 +9,7 @@ Feature: Product
     Examples:
       | name                  | price     | stock   |
       | "Shampoo Antipulgas"    | 15.50     | 10      |
+      | "Correa para perro"    | 17.00     | 20      |
 
   Scenario: Searh a Product by Id
     Given the product id <id>
