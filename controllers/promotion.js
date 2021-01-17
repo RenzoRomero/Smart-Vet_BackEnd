@@ -7,7 +7,7 @@ function getPromotion (req, res) {
 
   Promotion.findById(promotionId, (err, promotion) => {
     if(err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
-    if(!promotion) return res.status(404).send({message: `Error la promoción no existe`})
+    if(!promotion) return res.status(204).send({message: `Error la promoción no existe`})
 
     res.status(200).send({ promotion })
   })
@@ -16,7 +16,7 @@ function getPromotion (req, res) {
 function getPromotions (req, res) {
   Promotion.find({}, (err, promotions) => {
     if(err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`})
-    if(!promotions) return res.status(404).send({message: `No existen promociones`})
+    if(!promotions) return res.status(204).send({message: `No existen promociones`})
 
     res.status(200).send({ promotions })
   })
