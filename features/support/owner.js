@@ -48,5 +48,5 @@ Then("owner login successfully", async function () {
 });
 
 Then("Smart-Vet does not allow access to Owner", async function () {
-  return assert.equal(this.number, 202);
+  return assert.equal(this.number, 204);
 });

@@ -7,7 +7,7 @@ function getService (req, res) {
 
   Service.findById(serviceId, (err, service) => {
     if(err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
-    if(!service) return res.status(404).send({message: `Error el servicio no existe`})
+    if(!service) return res.status(204).send({message: `Error el servicio no existe`})
 
     res.status(200).send({ service })
   })
@@ -16,7 +16,7 @@ function getService (req, res) {
 function getServices (req, res) {
   Service.find({}, (err, services) => {
     if(err) return res.status(500).send({message: `Error al realizar la peticion: ${err}`})
-    if(!services) return res.status(404).send({message: `No existen servicios`})
+    if(!services) return res.status(204).send({message: `No existen servicios`})
 
     res.status(200).send({ services })
   })

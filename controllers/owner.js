@@ -28,11 +28,11 @@ function signUp (req, res) {
 function signIn (req, res) {
   Owner.findOne({ email: req.body.email }, (err, owner) => {
     if (err) return res.status(500).send({ message: err})
-    if (!owner) return res.status(202).send({ message: `No existe el usuario` })
+    if (!owner) return res.status(204).send({ message: `No existe el usuario` })
 
     return owner.comparePassword(req.body.password, (err, isMatch) => {
       if (err) return res.status(500).send({ message: `Error al ingresar: ${err}` })
-      if (!isMatch) return res.status(202).send({ message: `Error de contraseña: ${req.body.email}` })
+      if (!isMatch) return res.status(204).send({ message: `Error de contraseña: ${req.body.email}` })
 
       req.owner = owner
       return res.status(200).send({

@@ -44,5 +44,5 @@ Then("Smart-Vet show product details", async function () {
 });
 
 Then(/^Smart-Vet doesn't show product details$/, async function () {
-  return assert.equal(this.number, 202);
+  return assert.equal(this.number, 204);
 });
