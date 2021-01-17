@@ -9,6 +9,7 @@ class CustomWorld {
     this.name = "";
     this.price = 0.00;
     this.stock = 0;
+    this.userId = ""
   }
 
   setEmail(email) {
@@ -37,6 +38,10 @@ class CustomWorld {
 
   setStock(stock) {
     this.stock = stock;
+  }
+
+  setUserId(userid) {
+    this.userid = userid;
   }
 
 }

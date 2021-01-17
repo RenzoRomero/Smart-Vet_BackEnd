@@ -51,7 +51,7 @@ function getOwner (req, res) {
     if (err) return res.status(500).send({message: `Error al realizar la petición: ${err}`})
     if (!owner) return res.status(404).send({message: `La mascota no existe`})
 
-    res.status(200).send({ owners })
+    res.status(200).send({ owner })
   })
 }
 

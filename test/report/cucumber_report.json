@@ -13,10 +13,13 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 5,
-            "name": "An email \"prueba@outlook.com\" and a password \"password123\" of an owner qweqweqwewq",
+            "name": "An email \"prueba@outlook.com\" and a password \"password123\" of an owner",
+            "match": {
+              "location": "features\\support\\owner.js:6"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 2000000
             }
           },
           {
@@ -25,11 +28,11 @@
             "line": 6,
             "name": "I click on owner login in Smart-Vet App",
             "match": {
-              "location": "features\\support\\owner.js:11"
+              "location": "features\\support\\owner.js:20"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1331000000
             }
           },
           {
@@ -38,11 +41,11 @@
             "line": 7,
             "name": "owner login successfully",
             "match": {
-              "location": "features\\support\\owner.js:24"
+              "location": "features\\support\\owner.js:46"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 1000000
             }
           }
         ],
@@ -66,7 +69,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 3000000
+              "duration": 1000000
             }
           },
           {
@@ -75,11 +78,11 @@
             "line": 15,
             "name": "I click on owner login in Smart-Vet App",
             "match": {
-              "location": "features\\support\\owner.js:11"
+              "location": "features\\support\\owner.js:20"
             },
             "result": {
               "status": "passed",
-              "duration": 1145000000
+              "duration": 8000000
             }
           },
           {
@@ -88,7 +91,57 @@
             "line": 16,
             "name": "Smart-Vet does not allow access to Owner",
             "match": {
-              "location": "features\\support\\owner.js:28"
+              "location": "features\\support\\owner.js:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "owner;login-with-the-credentials-of-a-non-existent-user",
+        "keyword": "Scenario Outline",
+        "line": 22,
+        "name": "Login with the credentials of a non-existent user",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 23,
+            "name": "An email \"noexiste@noexiste.pe\" and a password \"ggwp\" of a non-existent user",
+            "match": {
+              "location": "features\\support\\owner.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 24,
+            "name": "I click on owner login in Smart-Vet App",
+            "match": {
+              "location": "features\\support\\owner.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "Smart-Vet does not allow access to Owner",
+            "match": {
+              "location": "features\\support\\owner.js:50"
             },
             "result": {
               "status": "passed",
@@ -101,18 +154,18 @@
       },
       {
         "description": "",
-        "id": "owner;login-with-wrong-credentials",
+        "id": "owner;login-with-the-credentials-of-a-non-existent-user",
         "keyword": "Scenario Outline",
-        "line": 13,
-        "name": "Login with wrong credentials",
+        "line": 22,
+        "name": "Login with the credentials of a non-existent user",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 14,
-            "name": "An email \"noexiste@noexiste.pe\" and a password \"ggwp\" of an owner",
+            "line": 23,
+            "name": "An email \"sindominio@sindominio.pe\" and a password \"noregistrado\" of a non-existent user",
             "match": {
-              "location": "features\\support\\owner.js:6"
+              "location": "features\\support\\owner.js:11"
             },
             "result": {
               "status": "passed",
@@ -122,10 +175,60 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 15,
+            "line": 24,
             "name": "I click on owner login in Smart-Vet App",
             "match": {
-              "location": "features\\support\\owner.js:11"
+              "location": "features\\support\\owner.js:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "Smart-Vet does not allow access to Owner",
+            "match": {
+              "location": "features\\support\\owner.js:50"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "owner;search-for-a-registered-user",
+        "keyword": "Scenario Outline",
+        "line": 32,
+        "name": "Search for a registered user",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 33,
+            "name": "An userid \"5fdeb9f9b06959374c487bbf\" of a registered user",
+            "match": {
+              "location": "features\\support\\owner.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 34,
+            "name": "I want to find a registered user",
+            "match": {
+              "location": "features\\support\\owner.js:33"
             },
             "result": {
               "status": "passed",
@@ -135,10 +238,10 @@
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 16,
-            "name": "Smart-Vet does not allow access to Owner",
+            "line": 35,
+            "name": "Smart-Vet show user information",
             "match": {
-              "location": "features\\support\\owner.js:28"
+              "location": "features\\support\\owner.js:42"
             },
             "result": {
               "status": "passed",
@@ -190,7 +293,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 33000000
+              "duration": 30000000
             }
           },
           {
@@ -227,7 +330,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1000000
             }
           },
           {
@@ -240,7 +343,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 25000000
             }
           },
           {
@@ -290,7 +393,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 10000000
+              "duration": 8000000
             }
           },
           {
@@ -340,7 +443,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 6000000
+              "duration": 5000000
             }
           },
           {
@@ -401,7 +504,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 9000000
+              "duration": 10000000
             }
           },
           {
@@ -423,15 +526,65 @@
       },
       {
         "description": "",
+        "id": "product;register-a-new-product",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Register a new Product",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the product name \"Correa para perro\", the price 17.00 and stock 20",
+            "match": {
+              "location": "features\\support\\product.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I want to register a new product",
+            "match": {
+              "location": "features\\support\\product.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "Smart-Vet save the new product",
+            "match": {
+              "location": "features\\support\\product.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
         "id": "product;searh-a-product-by-id",
         "keyword": "Scenario",
-        "line": 13,
+        "line": 14,
         "name": "Searh a Product by Id",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 14,
+            "line": 15,
             "name": "the product id \"5fdf7309927a622eb4c99e95\"",
             "match": {
               "location": "features\\support\\product.js:30"
@@ -444,20 +597,20 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 15,
+            "line": 16,
             "name": "I want to search a product",
             "match": {
               "location": "features\\support\\product.js:34"
             },
             "result": {
               "status": "passed",
-              "duration": 5000000
+              "duration": 8000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 16,
+            "line": 17,
             "name": "Smart-Vet show product details",
             "match": {
               "location": "features\\support\\product.js:42"
@@ -475,26 +628,26 @@
         "description": "",
         "id": "product;searh-a-product-that-doesn't-exist",
         "keyword": "Scenario",
-        "line": 22,
+        "line": 23,
         "name": "Searh a Product that doesn't exist",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 23,
+            "line": 24,
             "name": "the product id \"4fdf583b48d6945f982879fd\"",
             "match": {
               "location": "features\\support\\product.js:30"
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 24,
+            "line": 25,
             "name": "I want to search a product",
             "match": {
               "location": "features\\support\\product.js:34"
@@ -507,7 +660,7 @@
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 25,
+            "line": 26,
             "name": "Smart-Vet doesn't show product details",
             "match": {
               "location": "features\\support\\product.js:46"
@@ -562,7 +715,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 243000000
+              "duration": 233000000
             }
           },
           {
@@ -575,7 +728,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           }
         ],
@@ -612,7 +765,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4000000
+              "duration": 8000000
             }
           },
           {
@@ -625,7 +778,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           }
         ],
@@ -662,7 +815,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 4000000
+              "duration": 5000000
             }
           },
           {
